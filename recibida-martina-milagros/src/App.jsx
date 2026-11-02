@@ -3,6 +3,7 @@ import HeroBranding from './components/HeroBranding';
 import StageHeader from './components/StageHeader';
 import CountdownDisplay from './components/CountdownDisplay';
 import EventDetails from './components/EventDetails';
+import RsvpSection from './components/RsvpSection';
 import TimeSimulator from './components/TimeSimulator';
 import {
   DEFAULT_CONFIG,
@@ -22,6 +23,10 @@ function App() {
   // Configurable hours (defaults: 12:00 for exam, 21:30 for party)
   const [examTime, setExamTime] = useState(DEFAULT_CONFIG.examTime);
   const [partyTime, setPartyTime] = useState(DEFAULT_CONFIG.partyTime);
+
+  // Contact phone numbers for attendance confirmation (WhatsApp)
+  const [martinaPhone, setMartinaPhone] = useState(DEFAULT_CONFIG.martinaPhone);
+  const [milagrosPhone, setMilagrosPhone] = useState(DEFAULT_CONFIG.milagrosPhone);
 
   // Time simulation offset in ms (0 = real current time in Argentina)
   const [simulationOffsetMs, setSimulationOffsetMs] = useState(0);
@@ -239,6 +244,13 @@ function App() {
           stage={currentStage}
         />
 
+        {/* Confirmation of Attendance (RSVP) */}
+        <RsvpSection
+          partyDateStr="19 de Diciembre de 2026"
+          martinaPhone={martinaPhone}
+          milagrosPhone={milagrosPhone}
+        />
+
         {/* Invitation footer quote */}
         <footer className="invitation-footer">
           <p className="footer-quote">
@@ -256,6 +268,10 @@ function App() {
         setExamTime={setExamTime}
         partyTime={partyTime}
         setPartyTime={setPartyTime}
+        martinaPhone={martinaPhone}
+        setMartinaPhone={setMartinaPhone}
+        milagrosPhone={milagrosPhone}
+        setMilagrosPhone={setMilagrosPhone}
         onSimulateNearExamZero={handleSimulateNearExamZero}
         onSimulateNearPartyZero={handleSimulateNearPartyZero}
         onSimulateStage2Direct={handleSimulateStage2Direct}

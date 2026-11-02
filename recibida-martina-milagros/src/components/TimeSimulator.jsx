@@ -6,6 +6,10 @@ export default function TimeSimulator({
   setExamTime,
   partyTime,
   setPartyTime,
+  martinaPhone,
+  setMartinaPhone,
+  milagrosPhone,
+  setMilagrosPhone,
   onSimulateNearExamZero,
   onSimulateNearPartyZero,
   onSimulateStage2Direct,
@@ -35,7 +39,7 @@ export default function TimeSimulator({
           <div className="simulator-header">
             <h5 className="sim-title">Panel de Control &amp; Verificación</h5>
             <p className="sim-description">
-              Permite simular el paso del tiempo y probar las transiciones en vivo sin esperar hasta diciembre de 2026.
+              Permite simular el paso del tiempo, probar las transiciones en vivo y configurar los teléfonos de WhatsApp.
             </p>
           </div>
 
@@ -62,6 +66,34 @@ export default function TimeSimulator({
                   value={partyTime}
                   onChange={(e) => setPartyTime(e.target.value)}
                   className="sim-time-input"
+                />
+              </label>
+            </div>
+          </div>
+
+          {/* Phone numbers configuration */}
+          <div className="sim-section">
+            <span className="sim-section-label">Teléfonos para Confirmación WhatsApp:</span>
+            <div className="sim-inputs-row">
+              <label className="sim-input-label">
+                <span>📱 WhatsApp Martina:</span>
+                <input
+                  type="text"
+                  value={martinaPhone}
+                  onChange={(e) => setMartinaPhone(e.target.value)}
+                  className="sim-time-input"
+                  placeholder="+54 9 2262 57-2405"
+                />
+              </label>
+
+              <label className="sim-input-label">
+                <span>📱 WhatsApp Milagros:</span>
+                <input
+                  type="text"
+                  value={milagrosPhone}
+                  onChange={(e) => setMilagrosPhone(e.target.value)}
+                  className="sim-time-input"
+                  placeholder="+54 9 2262..."
                 />
               </label>
             </div>

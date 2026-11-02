@@ -3,30 +3,34 @@
   --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
   --font-heading: 'Playfair Display', Georgia, serif;
 
-  /* Colors */
-  --bg-primary: #070b16;
-  --bg-secondary: #0c1324;
-  --bg-card: rgba(16, 24, 46, 0.7);
-  --bg-card-hover: rgba(22, 33, 62, 0.85);
+  /* Luminous & Joyful Palette (Celeste, Oro, Blanco Nácar, Azul Real) */
+  --bg-primary: #f0f7ff;
+  --bg-secondary: #e0effe;
+  --bg-card: rgba(255, 255, 255, 0.82);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
 
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
+  --text-main: #0f172a;
+  --text-muted: #475569;
   --text-dim: #64748b;
 
-  --accent-celeste: #38bdf8;
-  --accent-celeste-deep: #0284c7;
-  --accent-celeste-glow: rgba(56, 189, 248, 0.35);
+  --accent-celeste: #0284c7;
+  --accent-celeste-light: #38bdf8;
+  --accent-celeste-soft: #e0f2fe;
+  --accent-celeste-glow: rgba(2, 132, 199, 0.22);
 
-  --accent-gold: #fbbf24;
-  --accent-gold-deep: #d97706;
-  --accent-gold-glow: rgba(251, 191, 36, 0.3);
+  --accent-gold: #d97706;
+  --accent-gold-light: #f59e0b;
+  --accent-gold-soft: #fef3c7;
+  --accent-gold-glow: rgba(245, 158, 11, 0.25);
 
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-highlight: rgba(56, 189, 248, 0.25);
-  --border-gold: rgba(251, 191, 36, 0.3);
+  --border-subtle: rgba(2, 132, 199, 0.12);
+  --border-card: rgba(255, 255, 255, 0.85);
+  --border-highlight: rgba(2, 132, 199, 0.35);
+  --border-gold: rgba(217, 119, 6, 0.35);
 
-  --shadow-card: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.08);
-  --shadow-glow: 0 0 35px rgba(56, 189, 248, 0.25);
+  --shadow-card: 0 20px 45px -15px rgba(2, 132, 199, 0.12), 0 8px 20px -6px rgba(15, 23, 42, 0.06);
+  --shadow-card-hover: 0 25px 50px -12px rgba(2, 132, 199, 0.22), 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+  --shadow-glow: 0 0 35px rgba(2, 132, 199, 0.2);
 }
 
 * {

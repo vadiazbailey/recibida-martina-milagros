@@ -3,13 +3,15 @@
  * Argentina does not use Daylight Saving Time, so it is permanently UTC-3.
  */
 
-// Default dates requested by the user
+// Default dates and contact numbers requested by the user
 export const DEFAULT_CONFIG = {
   examDate: '2026-12-18',
   examTime: '12:00', // Default exam time (12:00 PM ART)
   partyDate: '2026-12-19',
   partyTime: '21:30', // Default party time (9:30 PM ART)
-  offset: '-03:00'
+  offset: '-03:00',
+  martinaPhone: '+54 9 2262 57-2405',
+  milagrosPhone: '+54 9 2262 57-2405' // Temporalmente el mismo número hasta tener el propio
 };
 
 /**

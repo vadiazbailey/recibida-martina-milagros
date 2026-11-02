@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, MapPin, Sparkles, CheckCircle2, Share2 } from 'lucide-react';
+import { Calendar, Clock, MapPin, Sparkles, CheckCircle2, Share2, PartyPopper } from 'lucide-react';
 import { formatSpanishDate } from '../utils/dateUtils';
 
 export default function EventDetails({
@@ -13,7 +13,6 @@ export default function EventDetails({
 
   // Helper to generate Google Calendar links
   const createGoogleCalendarUrl = (title, details, location, startTimeISO, endTimeISO) => {
-    // Format YYYYMMDDTHHmmssZ
     const formatDate = (date) => date.toISOString().replace(/-|:|\.\d\d\d/g, '');
     const start = formatDate(new Date(startTimeISO));
     const end = formatDate(new Date(endTimeISO));
@@ -25,17 +24,17 @@ export default function EventDetails({
   };
 
   const examStart = new Date(examTimestamp);
-  const examEnd = new Date(examTimestamp + 3 * 60 * 60 * 1000); // +3 hours
+  const examEnd = new Date(examTimestamp + 3 * 60 * 60 * 1000);
   const examCalUrl = createGoogleCalendarUrl(
     '🎓 Último Final: Martina & Milagros - Lic. en Psicopedagogía',
     '¡Acompañanos con tu energía en el último examen final de nuestra carrera!',
-    'Facultad / Universidad',
+    'Facultad / Sede Universitaria',
     examStart,
     examEnd
   );
 
   const partyStart = new Date(partyTimestamp);
-  const partyEnd = new Date(partyTimestamp + 6 * 60 * 60 * 1000); // +6 hours
+  const partyEnd = new Date(partyTimestamp + 6 * 60 * 60 * 1000);
   const partyCalUrl = createGoogleCalendarUrl(
     '🎉 Fiesta de Recibida: Martina & Milagros',
     '¡Festejamos el título de Licenciadas en Psicopedagogía! Noche inolvidable.',
@@ -58,11 +57,18 @@ export default function EventDetails({
     }
   };
 
+  const scrollToRsvp = () => {
+    const el = document.getElementById('confirmar-asistencia');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="events-section">
       <div className="section-header">
         <h3 className="section-title">CRONOGRAMA DE NUESTRO SUEÑO</h3>
-        <p className="section-subtitle">Dos momentos únicos que marcan el fin de una etapa y el inicio de otra</p>
+        <p className="section-subtitle">Dos momentos únicos que marcan el fin de una etapa y el comienzo de la celebración</p>
       </div>
 
       <div className="events-grid">
@@ -70,7 +76,7 @@ export default function EventDetails({
         <div className={`event-card ${stage === 'EXAM' ? 'card-highlighted' : 'card-completed'}`}>
           <div className="event-card-header">
             <span className="event-chip exam-chip">
-              {stage === 'EXAM' ? 'Paso 1: En curso' : 'Paso 1: ¡Completado!'}
+              {stage === 'EXAM' ? 'Paso 1: En curso' : 'Paso 1: ¡Completado! 🎓'}
             </span>
             <span className="event-date-badge">18 DIC 2026</span>
           </div>
@@ -110,7 +116,7 @@ export default function EventDetails({
         <div className={`event-card ${stage === 'PARTY' || stage === 'PARTY_CELEBRATION' ? 'card-highlighted' : ''}`}>
           <div className="event-card-header">
             <span className="event-chip party-chip">
-              {stage === 'PARTY_CELEBRATION' ? '¡Es Hoy!' : 'Paso 2: La Gran Celebración'}
+              {stage === 'PARTY_CELEBRATION' ? '¡Es Hoy!' : 'Paso 2: La Gran Fiesta 🎉'}
             </span>
             <span className="event-date-badge">19 DIC 2026</span>
           </div>
@@ -136,22 +142,29 @@ export default function EventDetails({
           </div>
 
           <div className="card-actions">
+            <button
+              onClick={scrollToRsvp}
+              className="btn-calendar btn-party-action"
+            >
+              <PartyPopper size={16} />
+              <span>Confirmar Asistencia</span>
+            </button>
             <a
               href={partyCalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-calendar btn-party-action"
+              className="btn-calendar"
+              title="Guardar en Google Calendar"
             >
-              <Sparkles size={16} />
-              <span>Agendar Fiesta</span>
+              <Calendar size={16} />
+              <span>Agendar</span>
             </a>
             <button
               onClick={handleShare}
               className="btn-share"
               title="Compartir invitación"
             >
-              {copied ? <CheckCircle2 size={16} color="#38bdf8" /> : <Share2 size={16} />}
-              <span>{copied ? '¡Enlace copiado!' : 'Compartir'}</span>
+              {copied ? <CheckCircle2 size={16} color="#0284c7" /> : <Share2 size={16} />}
             </button>
           </div>
         </div>

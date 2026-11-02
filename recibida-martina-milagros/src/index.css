@@ -1,0 +1,64 @@
+:root {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
+
+  /* Colors */
+  --bg-primary: #070b16;
+  --bg-secondary: #0c1324;
+  --bg-card: rgba(16, 24, 46, 0.7);
+  --bg-card-hover: rgba(22, 33, 62, 0.85);
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+
+  --accent-celeste: #38bdf8;
+  --accent-celeste-deep: #0284c7;
+  --accent-celeste-glow: rgba(56, 189, 248, 0.35);
+
+  --accent-gold: #fbbf24;
+  --accent-gold-deep: #d97706;
+  --accent-gold-glow: rgba(251, 191, 36, 0.3);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-highlight: rgba(56, 189, 248, 0.25);
+  --border-gold: rgba(251, 191, 36, 0.3);
+
+  --shadow-card: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.08);
+  --shadow-glow: 0 0 35px rgba(56, 189, 248, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
